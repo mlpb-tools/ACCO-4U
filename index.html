@@ -1,0 +1,1463 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guidebook Life Skills – Mission Locale × LS4YOU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            height: 100%;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .guidebook-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100%;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, #ff4757, #ff6b7a);
+            padding: 10px 20px;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-tab {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            color: white;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            background: white;
+            color: #ff4757;
+            transform: translateY(-2px);
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            padding: 40px;
+            min-height: calc(100% - 120px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Éléments décoratifs */
+        .circle-decoration {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .circle-turquoise {
+            background: #00d2d3;
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: -75px;
+        }
+
+        .circle-yellow {
+            background: #feca57;
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            right: -100px;
+        }
+
+        .circle-mint {
+            background: #7bed9f;
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            left: 10%;
+        }
+
+        /* Typographies */
+        .title-main {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 900;
+            font-size: 3.5rem;
+            color: #ff4757;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .title-section {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: #ff4757;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Encadrés colorés */
+        .info-box {
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .box-yellow {
+            background: linear-gradient(135deg, #feca57, #ff9ff3);
+            color: #333;
+        }
+
+        .box-turquoise {
+            background: linear-gradient(135deg, #00d2d3, #7bed9f);
+            color: white;
+        }
+
+        .box-mint {
+            background: linear-gradient(135deg, #7bed9f, #70a1ff);
+            color: white;
+        }
+
+        .box-orange {
+            background: linear-gradient(135deg, #ff9f43, #feca57);
+            color: #333;
+        }
+
+        .box-red {
+            background: linear-gradient(135deg, #ff4757, #ff6b7a);
+            color: white;
+        }
+
+        .box-purple {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            color: white;
+        }
+
+        /* Portrait circulaire */
+        .portrait-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d2d3, #7bed9f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            position: relative;
+            z-index: 10;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Mini-parcours */
+        .mini-course {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            border-top: 8px solid #ff4757;
+        }
+
+        .course-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .course-content h4 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #333;
+            margin: 20px 0 10px 0;
+        }
+
+        .course-content ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        .course-content li {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        /* Bubbles / Badges */
+        .bubble-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .bubble {
+            background: white;
+            border: 3px solid #00d2d3;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #00d2d3;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0,210,211,0.2);
+        }
+
+        .bubble:nth-child(2) { border-color: #feca57; color: #feca57; }
+        .bubble:nth-child(3) { border-color: #ff4757; color: #ff4757; }
+        .bubble:nth-child(4) { border-color: #7bed9f; color: #7bed9f; }
+
+        /* Axes showcase */
+        .axes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .axis-card {
+            border-radius: 20px;
+            padding: 25px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .axis-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .axis-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .axis-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .axis-title {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .axis-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* Domains grid */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .domain-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .domain-item:hover {
+            transform: translateY(-3px);
+            border-color: #ff4757;
+        }
+
+        .domain-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .domain-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* Stats overview */
+        .overview-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .stat-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Methodology boxes */
+        .method-box {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            border-left: 8px solid #ff4757;
+        }
+
+        .method-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .method-icon {
+            font-size: 3rem;
+            margin-right: 20px;
+        }
+
+        .method-title {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #ff4757;
+        }
+
+        .method-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* Tools grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-top: 5px solid #ff4757;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-card:nth-child(2) { border-top-color: #feca57; }
+        .tool-card:nth-child(3) { border-top-color: #00d2d3; }
+        .tool-card:nth-child(4) { border-top-color: #7bed9f; }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .tool-title {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tool-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Module accordions */
+        .module-accordion {
+            margin: 20px 0;
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, #ff4757, #ff6b7a);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .module-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,71,87,0.3);
+        }
+
+        .module-header h3 {
+            margin: 0;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        .module-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .module-content {
+            display: none;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .module-content.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page {
+                padding: 20px;
+            }
+            
+            .title-main {
+                font-size: 2.5rem;
+            }
+            
+            .title-section {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs {
+                padding: 10px;
+            }
+
+            .overview-stats {
+                gap: 20px;
+            }
+
+            .stat-circle {
+                width: 100px;
+                height: 100px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .axes-grid, .domains-grid, .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="guidebook-container">
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showPage('cover')">🏠 Accueil</button>
+            <button class="nav-tab" onclick="showPage('intro')">📖 Introduction</button>
+            <button class="nav-tab" onclick="showPage('modeemploi')">📋 Mode d'emploi / Matrice</button>
+            <button class="nav-tab" onclick="showPage('modules')">🎯 Diagnostic / Plan d'actions / Modules</button>
+            <button class="nav-tab" onclick="showPage('synthese')">✅ Synthèse</button>
+        </nav>
+
+        <!-- PAGE COUVERTURE -->
+        <div id="cover" class="page active">
+            <div class="circle-decoration circle-turquoise"></div>
+            <div class="circle-decoration circle-yellow"></div>
+            <div class="circle-decoration circle-mint"></div>
+            
+            <h1 class="title-main">Guidebook Life Skills</h1>
+            <p class="subtitle">Mission Locale × LS4YOU</p>
+            
+            <div class="portrait-circle">🎯</div>
+            
+            <p class="subtitle" style="margin-top: 40px;">Développer les compétences de vie pour l'insertion des jeunes</p>
+            
+            <div class="bubble-container">
+                <div class="bubble">Simple</div>
+                <div class="bubble">Concret</div>
+                <div class="bubble">Actionnable</div>
+                <div class="bubble">Efficace</div>
+            </div>
+            
+            <div class="info-box box-turquoise" style="margin-top: 60px;">
+                <p style="text-align: center; font-size: 1.1rem; margin: 0;">
+                    <strong>Mission Locale × LS4YOU</strong><br>
+                    Un outil pratique pour les conseillers et les jeunes en insertion
+                </p>
+            </div>
+        </div>
+
+        <!-- PAGE INTRODUCTION -->
+        <div id="intro" class="page">
+            <div class="circle-decoration circle-turquoise"></div>
+            <div class="circle-decoration circle-yellow"></div>
+            
+            <h2 class="title-section">📖 Introduction</h2>
+            <p class="subtitle">Les Life Skills au service de l'insertion professionnelle</p>
+
+            <!-- Stats Overview -->
+            <div class="overview-stats">
+                <div class="stat-circle" style="background: linear-gradient(135deg, #ff4757, #ff6b7a);">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Domaines</div>
+                </div>
+                <div class="stat-circle" style="background: linear-gradient(135deg, #feca57, #ff9f43);">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Questions</div>
+                </div>
+                <div class="stat-circle" style="background: linear-gradient(135deg, #00d2d3, #7bed9f);">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Axes</div>
+                </div>
+            </div>
+
+            <!-- Qu'est-ce que les Life Skills -->
+            <div class="info-box box-yellow">
+                <h3 style="font-family: 'Nunito', sans-serif; font-weight: 800; margin-top: 0;">🧩 Qu'est-ce que les Life Skills ?</h3>
+                <p>Les <strong>Life Skills</strong> (compétences de vie) sont des compétences psychosociales essentielles pour naviguer dans la vie quotidienne et professionnelle. Elles incluent :</p>
+                <ul>
+                    <li><strong>Compétences personnelles</strong> : Confiance en soi, gestion des émotions, adaptabilité</li>
+                    <li><strong>Compétences sociales</strong> : Communication, collaboration, réseau</li>
+                    <li><strong>Compétences pratiques</strong> : Organisation, gestion du budget, autonomie</li>
+                </ul>
+            </div>
+
+            <!-- Les 4 axes -->
+            <h3 class="title-section" style="font-size: 2rem; margin-top: 50px;">Les 4 axes des Life Skills</h3>
+            <div class="axes-grid">
+                <div class="axis-card" style="background: linear-gradient(135deg, #ff4757, #ff6b7a);">
+                    <div class="axis-number">1</div>
+                    <div class="axis-icon">👤</div>
+                    <div class="axis-title">Personnalité & Image</div>
+                    <div class="axis-description">Confiance en soi, communication, présentation professionnelle</div>
+                </div>
+                <div class="axis-card" style="background: linear-gradient(135deg, #feca57, #ff9f43);">
+                    <div class="axis-number">2</div>
+                    <div class="axis-icon">🎯</div>
+                    <div class="axis-title">Valorisation & Projet</div>
+                    <div class="axis-description">Orientation, formation, recherche d'emploi, mobilité</div>
+                </div>
+                <div class="axis-card" style="background: linear-gradient(135deg, #00d2d3, #7bed9f);">
+                    <div class="axis-number">3</div>
+                    <div class="axis-icon">💚</div>
+                    <div class="axis-title">Bien-être & Équilibre</div>
+                    <div class="axis-description">Santé, gestion du stress, mode de vie équilibré</div>
+                </div>
+                <div class="axis-card" style="background: linear-gradient(135deg, #a29bfe, #6c5ce7);">
+                    <div class="axis-number">4</div>
+                    <div class="axis-icon">🏠</div>
+                    <div class="axis-title">Ressources & Autonomie</div>
+                    <div class="axis-description">Logement, finances, citoyenneté, numérique, loisirs</div>
+                </div>
+            </div>
+
+            <!-- Évaluation des Life Skills dans 11 Domaines -->
+            <h3 class="title-section" style="font-size: 2rem; margin-top: 50px;">Évaluation des Life Skills dans 11 Domaines</h3>
+            
+            <div class="info-box box-turquoise">
+                <h4 style="font-family: 'Nunito', sans-serif; font-weight: 700; margin-top: 0;">📊 Diagnostic en 11 domaines</h4>
+                <p>L'évaluation Life Skills couvre l'ensemble des compétences essentielles à l'insertion professionnelle et sociale des jeunes. Chaque domaine fait l'objet d'une auto-évaluation permettant d'identifier les forces et les axes de progression.</p>
+            </div>
+
+            <div class="domains-grid">
+                <div class="domain-item">
+                    <div class="domain-icon">💼</div>
+                    <div class="domain-name">Emploi</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">🎓</div>
+                    <div class="domain-name">Formation</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">🧭</div>
+                    <div class="domain-name">Orientation</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">🚗</div>
+                    <div class="domain-name">Mobilité</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">💚</div>
+                    <div class="domain-name">Santé</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">🏠</div>
+                    <div class="domain-name">Logement</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">🤝</div>
+                    <div class="domain-name">Citoyenneté</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">💰</div>
+                    <div class="domain-name">Finances</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">🎨</div>
+                    <div class="domain-name">Loisirs</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">📱</div>
+                    <div class="domain-name">Numérique</div>
+                </div>
+                <div class="domain-item">
+                    <div class="domain-icon">🔄</div>
+                    <div class="domain-name">Mode de vie</div>
+                </div>
+            </div>
+
+            <div class="info-box box-orange" style="margin-top: 40px;">
+                <h4 style="font-family: 'Nunito', sans-serif; font-weight: 700; margin-top: 0;">🎯 Du diagnostic à l'action</h4>
+                <p>L'évaluation initiale permet de :</p>
+                <ul>
+                    <li>✅ Identifier 2 <strong>forces</strong> à valoriser</li>
+                    <li>🎯 Repérer 2 <strong>priorités</strong> à travailler</li>
+                    <li>📍 Orienter vers les <strong>mini-parcours</strong> adaptés</li>
+                    <li>📈 Mesurer les <strong>progrès</strong> dans le temps</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PAGE MODE D'EMPLOI / MATRICE -->
+        <div id="modeemploi" class="page">
+            <div class="circle-decoration circle-turquoise"></div>
+            <div class="circle-decoration circle-yellow"></div>
+            
+            <h2 class="title-section">📋 Mode d'emploi / Matrice</h2>
+            <p class="subtitle">Le fil rouge méthodologique LS4YOU → Mission Locale</p>
+
+            <div class="info-box box-red">
+                <p style="text-align: center; font-size: 1.2rem; margin: 0;">
+                    L'ensemble du dispositif Life Skills repose sur <strong>4 outils reliés entre eux</strong>, chacun jouant un rôle spécifique dans l'accompagnement du jeune. Leur articulation doit être <strong>simple, logique et répétable</strong>, quel que soit le profil du jeune ou le domaine travaillé.
+                </p>
+            </div>
+
+            <!-- Outil 1 : DIAGNOSTIC -->
+            <div class="method-box" style="border-left-color: #ff4757;">
+                <div class="method-header">
+                    <div class="method-icon">🧩</div>
+                    <div>
+                        <div class="method-title">1. Le DIAGNOSTIC</div>
+                        <div class="method-subtitle">"Je fais le point sur où j'en suis"</div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.1rem; color: #333; margin: 20px 0;">
+                    L'outil diagnostic (11 domaines, 50 questions) est le <strong>point d'entrée obligatoire</strong>. Il répond à UNE question centrale :
+                </p>
+                
+                <div class="info-box box-yellow" style="margin: 20px 0;">
+                    <p style="font-size: 1.2rem; font-weight: 700; margin: 0; text-align: center;">
+                        👉 De quoi le jeune a-t-il besoin MAINTENANT pour avancer ?
+                    </p>
+                </div>
+
+                <h4 style="color: #ff4757; font-family: 'Nunito', sans-serif;">Le diagnostic produit :</h4>
+                <ul>
+                    <li>Un profil en 11 domaines (radar / histogramme)</li>
+                    <li>2 forces à utiliser</li>
+                    <li>2 priorités à travailler</li>
+                    <li>Des indications sur les 4 axes Life Skills (personnalité – valorisation – bien-être – ressources)</li>
+                </ul>
+
+                <h4 style="color: #ff4757; font-family: 'Nunito', sans-serif;">Ce que l'on active ensuite :</h4>
+                <p style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #ff4757;">
+                    → Les mini-parcours <strong>LES PLUS UTILES</strong>, adaptés aux scores.<br>
+                    → Pas de hasard : c'est le <strong>diagnostic qui oriente</strong>.
+                </p>
+            </div>
+
+            <!-- Outil 2 : MINI-PARCOURS -->
+            <div class="method-box" style="border-left-color: #feca57;">
+                <div class="method-header">
+                    <div class="method-icon">🎯</div>
+                    <div>
+                        <div class="method-title">2. Les MINI-PARCOURS</div>
+                        <div class="method-subtitle">"J'apprends et je progresse"</div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.1rem; color: #333; margin: 20px 0;">
+                    Les mini-parcours sont les <strong>modules clés</strong>, courts, pragmatiques, conçus pour :
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                    <div style="background: linear-gradient(135deg, #feca57, #ff9f43); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 2rem;">✔</div>
+                        <div style="font-weight: 700;">Développer une compétence</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #feca57, #ff9f43); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 2rem;">✔</div>
+                        <div style="font-weight: 700;">Produire une trace</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #feca57, #ff9f43); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 2rem;">✔</div>
+                        <div style="font-weight: 700;">Faire progresser</div>
+                    </div>
+                </div>
+
+                <h4 style="color: #feca57; font-family: 'Nunito', sans-serif;">Chaque mini-parcours :</h4>
+                <ul>
+                    <li>Répond à un domaine du diagnostic</li>
+                    <li>S'appuie sur les compétences Life Skills</li>
+                    <li>Utilise 1 à 3 activités LS4YOU</li>
+                    <li>Se fait en <strong>30 min → 1 h</strong></li>
+                </ul>
+
+                <h4 style="color: #feca57; font-family: 'Nunito', sans-serif;">Leur rôle :</h4>
+                <p style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #feca57;">
+                    👉 Transformer le résultat du diagnostic en <strong>action concrète immédiate</strong>.
+                </p>
+
+                <div class="info-box box-orange" style="margin-top: 20px;">
+                    <h4 style="margin-top: 0;">Exemple d'articulation :</h4>
+                    <ul style="margin: 10px 0;">
+                        <li>Score faible en EMPLOI → Mini-parcours EMPLOI</li>
+                        <li>Score faible en SANTÉ → Mini-parcours STRESSOMÈTRE</li>
+                        <li>Score faible en FINANCES → Mini-parcours BUDGET</li>
+                    </ul>
+                    <p style="margin: 10px 0 0 0; font-weight: 600;">Le jeune avance "par briques", sans surcharge.</p>
+                </div>
+            </div>
+
+            <!-- Outil 3 : OUTILS TRANSVERSAUX -->
+            <div class="method-box" style="border-left-color: #00d2d3;">
+                <div class="method-header">
+                    <div class="method-icon">🧰</div>
+                    <div>
+                        <div class="method-title">3. Les OUTILS TRANSVERSAUX</div>
+                        <div class="method-subtitle">"Je renforce mes compétences clés"</div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.1rem; color: #333; margin: 20px 0;">
+                    Ces outils sont <strong>contextuels</strong>, mobilisés selon les besoins révélés par le diagnostic, les mini-parcours ou ce que le jeune dit en entretien.
+                </p>
+
+                <p>Ils permettent d'<strong>approfondir, structurer ou mettre en pratique</strong> un apprentissage.</p>
+
+                <h4 style="color: #00d2d3; font-family: 'Nunito', sans-serif;">Exemples d'outils transversaux :</h4>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">🎤</div>
+                        <div class="tool-title">Pitch personnel</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">💶</div>
+                        <div class="tool-title">Bulletin de salaire</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🤯</div>
+                        <div class="tool-title">Stressomètre</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">📱</div>
+                        <div class="tool-title">Identité numérique</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🧩</div>
+                        <div class="tool-title">Faites le point</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🤝</div>
+                        <div class="tool-title">Réseau de soutien</div>
+                    </div>
+                </div>
+
+                <h4 style="color: #00d2d3; font-family: 'Nunito', sans-serif;">Leur rôle :</h4>
+                <ul style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #00d2d3;">
+                    <li>Soutenir, renforcer et prolonger ce qui est travaillé dans un mini-parcours</li>
+                    <li>Servir de "boîte à outils rapide" pour les conseillers</li>
+                    <li>Donner au jeune des outils reproductibles et simples</li>
+                </ul>
+            </div>
+
+            <!-- Outil 4 : PLAN D'ACTION -->
+            <div class="method-box" style="border-left-color: #a29bfe;">
+                <div class="method-header">
+                    <div class="method-icon">🧭</div>
+                    <div>
+                        <div class="method-title">4. Le PLAN D'ACTION</div>
+                        <div class="method-subtitle">"Je passe à l'action dans ma vraie vie"</div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.1rem; color: #333; margin: 20px 0;">
+                    Le plan d'action formalise la <strong>mise en mouvement</strong> du jeune. Il traduit les apprentissages en <strong>3 engagements concrets</strong>, réalistes, réalisables en 30 jours.
+                </p>
+
+                <h4 style="color: #a29bfe; font-family: 'Nunito', sans-serif;">Structure (simple & universelle) :</h4>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin: 20px 0;">
+                    <ol style="line-height: 2;">
+                        <li><strong>Objectif</strong> (clair & atteignable)</li>
+                        <li><strong>Action à faire</strong></li>
+                        <li><strong>Quand ?</strong> (échéance)</li>
+                        <li><strong>Avec quelles ressources ?</strong></li>
+                        <li><strong>Ce que j'attends de mon conseiller</strong></li>
+                        <li><strong>Comment je saurai que j'ai réussi ?</strong></li>
+                    </ol>
+                </div>
+
+                <h4 style="color: #a29bfe; font-family: 'Nunito', sans-serif;">Son rôle :</h4>
+                <ul style="background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: white; padding: 20px; border-radius: 10px;">
+                    <li>Ancrer dans le quotidien ce qui a été travaillé en atelier</li>
+                    <li>Donner une direction claire entre deux rendez-vous</li>
+                    <li>Matérialiser un progrès immédiat</li>
+                </ul>
+            </div>
+
+            <!-- Schéma de flux -->
+            <div class="info-box box-yellow" style="margin-top: 50px;">
+                <h3 style="font-family: 'Nunito', sans-serif; font-weight: 800; margin-top: 0; text-align: center;">🔄 Flux méthodologique</h3>
+                <div style="text-align: center; font-size: 1.2rem; line-height: 2.5; font-weight: 600;">
+                    🧩 DIAGNOSTIC<br>
+                    ↓<br>
+                    🎯 MINI-PARCOURS adaptés<br>
+                    ↓<br>
+                    🧰 OUTILS TRANSVERSAUX (si besoin)<br>
+                    ↓<br>
+                    🧭 PLAN D'ACTION<br>
+                    ↓<br>
+                    📈 SUIVI & PROGRÈS
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE DIAGNOSTIC / PLAN D'ACTIONS / MODULES -->
+        <div id="modules" class="page">
+            <div class="circle-decoration circle-turquoise"></div>
+            <div class="circle-decoration circle-yellow"></div>
+            
+            <h2 class="title-section">🎯 Diagnostic / Plan d'actions / Modules</h2>
+            <p class="subtitle">Les outils complets pour l'accompagnement Life Skills</p>
+
+            <!-- Section Diagnostic -->
+            <div class="info-box box-red">
+                <h3 style="font-family: 'Nunito', sans-serif; font-weight: 800; margin-top: 0;">🧩 DIAGNOSTIC INITIAL</h3>
+                <p style="font-size: 1.1rem;">
+                    Point d'entrée obligatoire : évaluation en 11 domaines avec 50 questions pour identifier les forces et priorités du jeune.
+                </p>
+                <div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <h4 style="color: #ff4757;">📊 Résultats du diagnostic :</h4>
+                    <ul>
+                        <li>✅ Profil visuel (radar ou histogramme)</li>
+                        <li>💪 2 forces à valoriser</li>
+                        <li>🎯 2 priorités à travailler</li>
+                        <li>📍 Orientation vers mini-parcours adaptés</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section Plan d'Action -->
+            <div class="info-box box-purple" style="margin-top: 40px;">
+                <h3 style="font-family: 'Nunito', sans-serif; font-weight: 800; margin-top: 0;">🧭 PLAN D'ACTION PERSONNEL</h3>
+                <p style="font-size: 1.1rem;">
+                    3 objectifs SMART pour passer de la théorie à la pratique dans les 30 jours.
+                </p>
+                <div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <h4 style="color: #a29bfe;">Structure du plan :</h4>
+                    <ol>
+                        <li><strong>Objectif clair</strong> : Que veux-je accomplir ?</li>
+                        <li><strong>Actions concrètes</strong> : Que dois-je faire ?</li>
+                        <li><strong>Échéance</strong> : Pour quand ?</li>
+                        <li><strong>Ressources</strong> : Avec quoi / qui ?</li>
+                        <li><strong>Soutien conseiller</strong> : Qu'est-ce que j'attends ?</li>
+                        <li><strong>Critères de réussite</strong> : Comment savoir que j'ai réussi ?</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Section 4 en 1 : Vue d'ensemble -->
+            <div class="info-box box-yellow" style="margin-top: 40px;">
+                <h3 style="font-family: 'Nunito', sans-serif; font-weight: 800; margin-top: 0; text-align: center;">🎯 VUE D'ENSEMBLE : Le 4 en 1</h3>
+                <p style="text-align: center; font-size: 1.1rem;">
+                    Articulation complète des 4 outils Life Skills dans l'accompagnement
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
+                    <div style="background: white; padding: 20px; border-radius: 15px; border-top: 5px solid #ff4757;">
+                        <div style="font-size: 2.5rem; text-align: center;">🧩</div>
+                        <h4 style="color: #ff4757; text-align: center; margin: 10px 0;">DIAGNOSTIC</h4>
+                        <p style="text-align: center; font-size: 0.9rem;">Point de départ<br>50 questions<br>11 domaines</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 15px; border-top: 5px solid #feca57;">
+                        <div style="font-size: 2.5rem; text-align: center;">🎯</div>
+                        <h4 style="color: #feca57; text-align: center; margin: 10px 0;">MINI-PARCOURS</h4>
+                        <p style="text-align: center; font-size: 0.9rem;">Modules courts<br>30 min - 1h<br>Action immédiate</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 15px; border-top: 5px solid #00d2d3;">
+                        <div style="font-size: 2.5rem; text-align: center;">🧰</div>
+                        <h4 style="color: #00d2d3; text-align: center; margin: 10px 0;">OUTILS</h4>
+                        <p style="text-align: center; font-size: 0.9rem;">Transversaux<br>Contextuels<br>Renforcement</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 15px; border-top: 5px solid #a29bfe;">
+                        <div style="font-size: 2.5rem; text-align: center;">🧭</div>
+                        <h4 style="color: #a29bfe; text-align: center; margin: 10px 0;">PLAN D'ACTION</h4>
+                        <p style="text-align: center; font-size: 0.9rem;">3 objectifs<br>30 jours<br>Ancrage réel</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LES 11 MINI-PARCOURS -->
+            <h2 class="title-section" style="font-size: 2.5rem; margin-top: 60px;">📚 Les 11 Mini-Parcours</h2>
+            <p class="subtitle">Modules courts et pragmatiques pour développer les Life Skills</p>
+
+            <!-- Module 1 : EMPLOI -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module1')">
+                    <h3>💼 1. Emploi & Employabilité</h3>
+                    <span class="module-toggle" id="toggle1">▼</span>
+                </div>
+                <div class="module-content" id="module1">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Développer les compétences clés pour réussir sa recherche d'emploi et son intégration professionnelle</p>
+                            
+                            <h4>🔑 Compétences travaillées</h4>
+                            <ul>
+                                <li>Construction d'un pitch personnel percutant</li>
+                                <li>Valorisation de son parcours et ses compétences</li>
+                                <li>Préparation aux entretiens d'embauche</li>
+                                <li>Compréhension des codes professionnels</li>
+                            </ul>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Moi à mon meilleur"</strong> : Pitch en 60 secondes</li>
+                                <li><strong>"Questions sans tabou"</strong> : Préparer les questions difficiles</li>
+                                <li><strong>"Simulation entretien"</strong> : Mise en situation réelle</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>30 min à 1h selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2 : FORMATION -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module2')" style="background: linear-gradient(135deg, #feca57, #ff9f43);">
+                    <h3>🎓 2. Formation & Apprentissage</h3>
+                    <span class="module-toggle" id="toggle2">▼</span>
+                </div>
+                <div class="module-content" id="module2">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Développer une posture d'apprenant actif et savoir tirer profit de toute expérience formative</p>
+                            
+                            <h4>🔑 Compétences travaillées</h4>
+                            <ul>
+                                <li>Identification de ses besoins en formation</li>
+                                <li>Organisation et méthodes d'apprentissage</li>
+                                <li>Feedback constructif et amélioration continue</li>
+                                <li>Valorisation des compétences acquises</li>
+                            </ul>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Mes façons d'apprendre"</strong> : Style d'apprentissage</li>
+                                <li><strong>"Feedback power"</strong> : Transformer les critiques en opportunités</li>
+                                <li><strong>"Portfolio compétences"</strong> : Tracer ses apprentissages</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>30 min à 1h selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 3 : ORIENTATION -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module3')" style="background: linear-gradient(135deg, #00d2d3, #7bed9f);">
+                    <h3>🧭 3. Orientation & Projet Professionnel</h3>
+                    <span class="module-toggle" id="toggle3">▼</span>
+                </div>
+                <div class="module-content" id="module3">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Clarifier ses aspirations professionnelles et construire un projet réaliste et motivant</p>
+                            
+                            <h4>🔑 Compétences travaillées</h4>
+                            <ul>
+                                <li>Exploration de ses intérêts et passions</li>
+                                <li>Connaissance des secteurs et métiers</li>
+                                <li>Construction d'un projet professionnel cohérent</li>
+                                <li>Planification des étapes de réalisation</li>
+                            </ul>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Mon magazine perso"</strong> : Créer un Zine de son projet</li>
+                                <li><strong>"Mes 3 vies"</strong> : Explorer différents scénarios</li>
+                                <li><strong>"Frise 1-5-10 ans"</strong> : Projeter son parcours</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>45 min à 1h selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 4 : MOBILITÉ -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module4')" style="background: linear-gradient(135deg, #70a1ff, #1e90ff);">
+                    <h3>🚗 4. Mobilité & Déplacements</h3>
+                    <span class="module-toggle" id="toggle4">▼</span>
+                </div>
+                <div class="module-content" id="module4">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Développer son autonomie dans les déplacements et élargir son rayon d'action professionnel</p>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Ma carte de mobilité"</strong> : Cartographier mes déplacements</li>
+                                <li><strong>"Mission impossible"</strong> : Planifier un trajet complexe</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>40 min selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 5 : SANTÉ -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module5')" style="background: linear-gradient(135deg, #7bed9f, #2ecc71);">
+                    <h3>💚 5. Santé & Bien-être</h3>
+                    <span class="module-toggle" id="toggle5">▼</span>
+                </div>
+                <div class="module-content" id="module5">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Développer des habitudes de vie saines et apprendre à gérer son stress et ses émotions</p>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Stressomètre"</strong> : Identifier et mesurer son stress</li>
+                                <li><strong>"Ma boîte à outils zen"</strong> : Techniques anti-stress</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>30 à 45 min selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 6 : LOGEMENT -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module6')" style="background: linear-gradient(135deg, #a29bfe, #6c5ce7);">
+                    <h3>🏠 6. Logement & Autonomie Résidentielle</h3>
+                    <span class="module-toggle" id="toggle6">▼</span>
+                </div>
+                <div class="module-content" id="module6">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Comprendre les démarches d'accès au logement et gérer son budget habitation</p>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Budget logement"</strong> : Calculer le coût total</li>
+                                <li><strong>"Rêver pour planifier"</strong> : Idéal vs réaliste</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>40 à 45 min selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 7 : CITOYENNETÉ -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module7')" style="background: linear-gradient(135deg, #ff9ff3, #ee5a6f);">
+                    <h3>🤝 7. Citoyenneté & Réseau</h3>
+                    <span class="module-toggle" id="toggle7">▼</span>
+                </div>
+                <div class="module-content" id="module7">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Développer son réseau personnel et professionnel et s'impliquer dans la société</p>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Mon réseau de soutien"</strong> : Cartographier ses relations</li>
+                                <li><strong>"Oser demander"</strong> : Formuler une demande d'aide</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>35 à 40 min selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 8 : FINANCES -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module8')" style="background: linear-gradient(135deg, #26de81, #20bf6b);">
+                    <h3>💰 8. Finances & Gestion du Budget</h3>
+                    <span class="module-toggle" id="toggle8">▼</span>
+                </div>
+                <div class="module-content" id="module8">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Acquérir les bases de la gestion financière et développer une relation saine avec l'argent</p>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Décoder ma fiche de paie"</strong> : Comprendre chaque ligne</li>
+                                <li><strong>"Budget 50/30/20"</strong> : Méthode simple de répartition</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>40 à 45 min selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 9 : LOISIRS -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module9')" style="background: linear-gradient(135deg, #fd79a8, #e84393);">
+                    <h3>🎨 9. Loisirs & Développement Personnel</h3>
+                    <span class="module-toggle" id="toggle9">▼</span>
+                </div>
+                <div class="module-content" id="module9">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Valoriser l'importance des loisirs et développer des activités épanouissantes</p>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Mes passions au quotidien"</strong> : Cartographier ses loisirs</li>
+                                <li><strong>"Loisirs = Compétences"</strong> : Identifier les soft skills acquises</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>35 à 40 min selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 10 : NUMÉRIQUE -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module10')" style="background: linear-gradient(135deg, #45aaf2, #2d98da);">
+                    <h3>📱 10. Numérique & Identité en ligne</h3>
+                    <span class="module-toggle" id="toggle10">▼</span>
+                </div>
+                <div class="module-content" id="module10">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Développer ses compétences numériques et construire une identité en ligne professionnelle</p>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Mon profil LinkedIn"</strong> : Créer sa vitrine professionnelle</li>
+                                <li><strong>"Google moi"</strong> : Auditer son e-réputation</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>30 min à 1h selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 11 : MODE DE VIE -->
+            <div class="module-accordion">
+                <div class="module-header" onclick="toggleModule('module11')" style="background: linear-gradient(135deg, #fed330, #f7b731);">
+                    <h3>🔄 11. Mode de Vie & Habitudes</h3>
+                    <span class="module-toggle" id="toggle11">▼</span>
+                </div>
+                <div class="module-content" id="module11">
+                    <div class="mini-course">
+                        <div class="course-content">
+                            <h4>🎯 Objectif</h4>
+                            <p>Développer des habitudes de vie équilibrées et durables au quotidien</p>
+                            
+                            <h4>🎬 Activités proposées</h4>
+                            <ul>
+                                <li><strong>"Ma semaine idéale"</strong> : Construire son planning équilibré</li>
+                                <li><strong>"Tracker d'habitudes"</strong> : Suivre ses progrès quotidiens</li>
+                            </ul>
+                            
+                            <h4>⏱️ Durée</h4>
+                            <p>45 min selon l'activité choisie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PAGE SYNTHÈSE -->
+        <div id="synthese" class="page">
+            <div class="circle-decoration circle-turquoise"></div>
+            <div class="circle-decoration circle-yellow"></div>
+            
+            <h2 class="title-section">✅ Synthèse & Évaluation</h2>
+            <p class="subtitle">Tableau de bord des Life Skills</p>
+
+            <div class="info-box box-yellow">
+                <h3 style="font-family: 'Nunito', sans-serif; font-weight: 800; margin-top: 0;">📊 Auto-évaluation globale</h3>
+                <p>Évaluez votre niveau actuel sur chaque domaine (1 = à développer, 5 = maîtrisé)</p>
+            </div>
+
+            <div class="tools-grid" style="margin-top: 40px;">
+                <div class="tool-card">
+                    <div class="tool-icon">💼</div>
+                    <div class="tool-title">Emploi</div>
+                    <div class="tool-desc">Pitch, entretien, posture pro</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎓</div>
+                    <div class="tool-title">Formation</div>
+                    <div class="tool-desc">Apprentissage, feedback</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🧭</div>
+                    <div class="tool-title">Orientation</div>
+                    <div class="tool-desc">Projet professionnel</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🚗</div>
+                    <div class="tool-title">Mobilité</div>
+                    <div class="tool-desc">Autonomie déplacements</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">💚</div>
+                    <div class="tool-title">Santé</div>
+                    <div class="tool-desc">Bien-être, gestion stress</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🏠</div>
+                    <div class="tool-title">Logement</div>
+                    <div class="tool-desc">Recherche, budget, gestion</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🤝</div>
+                    <div class="tool-title">Citoyenneté</div>
+                    <div class="tool-desc">Réseau, engagement</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">💰</div>
+                    <div class="tool-title">Finances</div>
+                    <div class="tool-desc">Budget, épargne, droits</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎨</div>
+                    <div class="tool-title">Loisirs</div>
+                    <div class="tool-desc">Passions, équilibre</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">📱</div>
+                    <div class="tool-title">Numérique</div>
+                    <div class="tool-desc">E-réputation, outils digitaux</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🔄</div>
+                    <div class="tool-title">Mode de vie</div>
+                    <div class="tool-desc">Routines, habitudes saines</div>
+                </div>
+            </div>
+
+            <h3 class="title-section" style="font-size: 2rem; margin-top: 60px;">Mon Plan d'Action Personnel</h3>
+            
+            <div class="info-box box-turquoise">
+                <h4 style="font-family: 'Nunito', sans-serif; font-weight: 700; margin-top: 0;">🎯 Mes 3 Objectifs Prioritaires</h4>
+                <p style="margin-bottom: 20px;">Objectifs SMART : Spécifiques, Mesurables, Atteignables, Réalistes, Temporellement définis</p>
+                
+                <div style="background: white; border-radius: 15px; padding: 20px; margin: 15px 0;">
+                    <strong>Objectif 1 :</strong> ___________________________________<br>
+                    <strong>Domaine :</strong> ___________________________________<br>
+                    <strong>Échéance :</strong> ___________________________________<br>
+                    <strong>Actions concrètes :</strong> ___________________________________
+                </div>
+                
+                <div style="background: white; border-radius: 15px; padding: 20px; margin: 15px 0;">
+                    <strong>Objectif 2 :</strong> ___________________________________<br>
+                    <strong>Domaine :</strong> ___________________________________<br>
+                    <strong>Échéance :</strong> ___________________________________<br>
+                    <strong>Actions concrètes :</strong> ___________________________________
+                </div>
+                
+                <div style="background: white; border-radius: 15px; padding: 20px; margin: 15px 0;">
+                    <strong>Objectif 3 :</strong> ___________________________________<br>
+                    <strong>Domaine :</strong> ___________________________________<br>
+                    <strong>Échéance :</strong> ___________________________________<br>
+                    <strong>Actions concrètes :</strong> ___________________________________
+                </div>
+            </div>
+
+            <div class="info-box box-orange" style="margin-top: 40px;">
+                <h4 style="font-family: 'Nunito', sans-serif; font-weight: 700; margin-top: 0;">🌟 Mes Réussites</h4>
+                <p>Compétences développées et succès obtenus :</p>
+                <ul style="min-height: 150px;">
+                    <li>___________________________________</li>
+                    <li>___________________________________</li>
+                    <li>___________________________________</li>
+                </ul>
+            </div>
+
+            <div class="bubble-container" style="margin-top: 60px;">
+                <div class="bubble">Prêt·e à avancer !</div>
+                <div class="bubble">Confiant·e</div>
+                <div class="bubble">Motivé·e</div>
+                <div class="bubble">Capable</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Fonction pour changer de page
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+            
+            event.target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Fonction pour toggler les modules (accordéons)
+        function toggleModule(moduleId) {
+            const moduleContent = document.getElementById(moduleId);
+            const toggleIcon = document.getElementById('toggle' + moduleId.replace('module', ''));
+            
+            if (moduleContent.classList.contains('active')) {
+                moduleContent.classList.remove('active');
+                toggleIcon.textContent = '▼';
+            } else {
+                const allModules = document.querySelectorAll('.module-content');
+                allModules.forEach(module => module.classList.remove('active'));
+                
+                const allToggles = document.querySelectorAll('.module-toggle');
+                allToggles.forEach(toggle => toggle.textContent = '▼');
+                
+                moduleContent.classList.add('active');
+                toggleIcon.textContent = '▲';
+            }
+        }
+    </script>
+</body>
+</html>
